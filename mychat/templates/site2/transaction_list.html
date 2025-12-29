@@ -1,0 +1,17 @@
+{% extends "app_base.html" %}
+{% load tx_extras %}
+
+{% block app_content %}
+   <ul>
+	{% for tx in transaction_list %}
+      <li>
+         <div class="flex flex-wrap w-64 mx-auto justify-between">
+            <span>{{ tx.recipient }}</span>
+            {{ tx|tx_amount_tailwind:request.user }}
+            <p class="basis-full text-xs mt-1">{{ tx.created_at_human }}</p>
+
+         </div>
+      </li>
+{% endfor %}
+   </ul>
+{% endblock %}

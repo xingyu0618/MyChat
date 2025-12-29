@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block style %}
+   <style>
+       html, body {
+       {#background-image: url("https://bing.img.run/rand.php");#}
+       }
+   </style>
+{% endblock %}
+
+{% block content %}
+   <div class="bg-base-200 border-base-300 rounded-box w-xs border p-4 mx-auto mt-20">
+      <header class="text-lg mt-2 text-center">Site2</header>
+      <form action="" method="post">
+         {% csrf_token %}
+         {{ form }}
+         <div class="text-center">
+            <button type="submit" class="btn btn-neutral mt-2">登录</button>
+         </div>
+      </form>
+   </div>
+
+   <script type="module">
+       document.querySelector('input[name=username]').value = 'user1'
+       document.querySelector('input[name=password]').value = '123456'
+   </script>
+{% endblock %}

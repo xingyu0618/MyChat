@@ -1,0 +1,10 @@
+{% extends "app_base.html" %}
+
+{% block app_content %}
+<form action="/transaction" method="post">
+   {{ form }}
+   <div class="text-center mt-2">
+      <button class="btn btn-primary">转账</button>
+   </div>
+</form>
+{% endblock %}

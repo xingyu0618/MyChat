@@ -1,0 +1,6 @@
+- model: site2.Contact
+  pk: 1
+  fields:
+    user_id: 1
+    contact_id: 2
+    remark: 同事

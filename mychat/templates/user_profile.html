@@ -1,0 +1,27 @@
+{% extends "app_base.html" %}
+{% load user_tags %}
+
+{% block app_content %}
+   <header class="text-center">个人资料</header>
+   <ul class="divide-y divide-gray-200 mt-3">
+      <li class="py-2">
+         <div class="flex items-center justify-between">
+            <span>头像</span>
+
+            <div class="flex items-center gap-2">
+               {% user_avatar %}
+               <iconify-icon icon="mdi:keyboard-arrow-right" class="text-2xl"></iconify-icon>
+            </div>
+         </div>
+      </li>
+      <li class="py-2">
+         <div class="flex justify-between">
+            <span>名字</span>
+            <div class="flex gap-2">
+               <span>{{ user.display_name }}</span>
+               <iconify-icon icon="mdi:keyboard-arrow-right" class="text-2xl"></iconify-icon>
+            </div>
+         </div>
+      </li>
+   </ul>
+{% endblock %}

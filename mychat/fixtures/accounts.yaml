@@ -1,0 +1,13 @@
+- model: site2.Account
+  pk: 1
+  fields:
+    username: alice
+    balance: 100.0
+    is_staff: true
+    is_superuser: true
+
+- model: site2.Account
+  pk: 2
+  fields:
+    username: bob
+    balance: 100.00
