@@ -12,6 +12,14 @@ export async function putChatsToDB(chats) {
     return putObjectsToDB(conversationStoreName, chats)
 }
 
+export async function getFriendsFromDB() {
+    return getObjectsFromDB(friendStoreName)
+}
+
+export async function getChatsFromDB() {
+    return getObjectsFromDB(conversationStoreName)
+}
+
 export async function putObjectsToDB(storeName, objects) {
     const db = await getDB()
     const tx = db.transaction(storeName, 'readwrite')
@@ -25,6 +33,21 @@ export async function putObjectsToDB(storeName, objects) {
         }
         tx.onerror = (event) => {
             reject(event)
+        }
+    })
+}
+
+export async function getObjectsFromDB(storeName) {
+    const db = await getDB()
+    const tx = db.transaction(storeName, 'readonly')
+    const store = tx.objectStore(storeName)
+    return new Promise((resolve, reject) => {
+        const request = store.getAll()
+        request.onsuccess = () => {
+            resolve(request.result ?? [])
+        }
+        request.onerror = () => {
+            reject(request.error)
         }
     })
 }
